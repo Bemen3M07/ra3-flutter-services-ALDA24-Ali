@@ -9,22 +9,23 @@ class JokeProvider extends ChangeNotifier {
 
   // Constructor: Nada más nacer esta clase, pedimos el primer chiste
   JokeProvider() {
-    fetchNewJoke();
+    fetchNewJoke();// Llamamos a la función que trae el chiste al crear el provider
   }
 
   // Función que llamaremos cada vez que pulsemos el botón
   Future<void> fetchNewJoke() async {
-    isLoading = true;
-    notifyListeners(); // Grito 1: "¡Pantalla, ponte a dar vueltas que estoy cargando!"
+    isLoading = true; // cambiamos el estado a "cargando"
+    notifyListeners(); // primera petición: el notifyListeners! grita: "¡Pantalla, estoy cargando un nuevo chiste, hazme un indicador de carga!"
 
+// aqui usamos un try catch para manejar posibles errores al traer el chiste (como problemas de conexión)
     try {
-      final service = JokeService();
-      currentJoke = await service.getRandomJoke(); // El mensajero nos trae un chiste
+      final service = JokeService(); // Creamos una instancia del servicio que sabe cómo traer chistes
+      currentJoke = await service.getRandomJoke(); // creamos el currentJoke con el chiste que nos devuelve el servicio (esto es una operación asíncrona, por eso usamos 'await')
     } catch (e) {
-      print("Error: $e");
+      print("Error: $e");// Si hay un error, lo imprimimos en la consola.
     }
 
-    isLoading = false;
-    notifyListeners(); // Grito 2: "¡Pantalla, ya lo tengo, dibuja el chiste nuevo!"
+    isLoading = false; //cambiamos el estado a "no cargando" ya que tenemos el chiste.
+    notifyListeners(); // segunda petición: "¡Pantalla, ya lo tengo, dibuja el chiste nuevo!"
   }
 }
