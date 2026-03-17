@@ -19,11 +19,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false, // Esto quita la etiqueta de "debug" que aparece en la esquina de la pantalla cuando estamos en modo desarrollo.
       title: 'App de Chistes',
-      // ¡Aquí está la magia! En vez de escribir todo el diseño aquí, 
-      // le decimos que cargue el archivo joke_screen.dart
-      home: JokeScreen(), 
+      home: JokeScreen(), //solo añadimos la pantalla principal que es el JokeScreen, que es donde se muestra el chiste y el botón.
     );
   }
 }
