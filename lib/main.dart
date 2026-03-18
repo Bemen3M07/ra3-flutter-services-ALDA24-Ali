@@ -7,7 +7,7 @@ import 'vista/tmb_screen.dart';
 
 void main() {
   runApp(
-    // 2. CONTRATAMOS AL JEFE DE SALA DE LOS AUTOBUSES
+    // CONTRATAMOS AL JEFE DE SALA DE LOS AUTOBUSES
     ChangeNotifierProvider(
       create: (context) => TmbProvider(),
       child: const MyApp(),
