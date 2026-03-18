@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'controlador/joke_provider.dart'; // Importamos el controlador
-import 'vista/joke_screen.dart'; // Importamos la pantalla que tiene el diseño
+
+// IMPORTAMOS LOS ARCHIVOS NUEVOS DE TMB
+import 'controlador/tmb_provider.dart'; 
+import 'vista/tmb_screen.dart'; 
 
 void main() {
   runApp(
-    // Envolvemos la app con el Provider de los chistes
+    // 2. CONTRATAMOS AL JEFE DE SALA DE LOS AUTOBUSES
     ChangeNotifierProvider(
-      create: (context) => JokeProvider(),
+      create: (context) => TmbProvider(),
       child: const MyApp(),
     ),
   );
@@ -18,10 +20,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false, // Esto quita la etiqueta de "debug" que aparece en la esquina de la pantalla cuando estamos en modo desarrollo.
-      title: 'App de Chistes',
-      home: JokeScreen(), //solo añadimos la pantalla principal que es el JokeScreen, que es donde se muestra el chiste y el botón.
+    return MaterialApp( 
+      debugShowCheckedModeBanner: false, 
+      title: 'App de Autobuses TMB',
+      // LE DECIMOS A LA APP QUE ABRA DIRECTAMENTE
+      home: TmbScreen(), 
     );
   }
 }

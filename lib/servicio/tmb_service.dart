@@ -25,7 +25,7 @@ class TmbService {
         // Abrimos el paquete de texto con json.decode
         final Map<String, dynamic> jsonDecoded = json.decode(response.body);
         
-        // ¡Magia de Postman! Si miras tu captura, la lista de buses está escondida dentro de "data", y luego dentro de "ibus". Así que sacamos justo esa parte:
+        // Si miramos la cap, la lista de buses está escondida dentro de "data", y luego dentro de "ibus". Así que sacamos justo esa parte:
         final List<dynamic> busesList = jsonDecoded['data']['ibus'];
 
         // Convertimos esa lista cruda en una lista de nuestros "Moldes" TmbBusModel
